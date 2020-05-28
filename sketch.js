@@ -1,4 +1,4 @@
-var trex, trex_running, trex_collided;
+var trex, trex_running, trex_collided,jump;
 var ground, invisibleGround, groundImage;
 
 var cloudsGroup, cloudImage;
@@ -10,7 +10,7 @@ var score;
 function preload(){
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadImage("trex_collided.png");
-  
+  jump=loadSound("jump.mp3");
   groundImage = loadImage("ground2.png");
   
   cloudImage = loadImage("cloud.png");
@@ -52,6 +52,7 @@ function draw() {
   
   if(keyDown("space")) {
     trex.velocityY = -10;
+    jump.play();
   }
   
   trex.velocityY = trex.velocityY + 0.8
